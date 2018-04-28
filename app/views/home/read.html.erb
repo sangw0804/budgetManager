@@ -1,0 +1,11 @@
+<div>날짜 : <%=@post.created_at.to_s[0..9]%></div>
+<% if(@post.inOut == "in")%>
+수입 : 
+<% else%>
+지출 : 
+<% end%>
+<%= @post.amount%>원
+<div>
+내용 : <%= @post.content%>
+</div>
+<a href="/">뒤로</a>

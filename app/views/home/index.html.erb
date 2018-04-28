@@ -1,0 +1,21 @@
+<h1>가계부!</h1>
+
+<div><a href="home/new">추가</a></div>
+<% count = 0%>
+<div>----------------------------</div>
+<% @post.each do |x| %>
+<%= x.created_at.to_s[0..9]%>
+<div>
+<%     if(x.inOut == "in") %>
++<% count += x.amount%>
+<%     else%>
+-<% count -= x.amount%>
+<%     end%>
+<%=     x.amount%>
+<a href="/home/read/<%=x.id%>">상세보기</a>
+<a href="/home/new2/<%=x.id%>">수정</a>
+<a href="/home/delete/<%=x.id%>">삭제</a>
+<div>----------------------------</div>
+</div>
+<% end%>
+잔액 : <%= count%>원
